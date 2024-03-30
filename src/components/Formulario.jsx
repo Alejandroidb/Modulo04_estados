@@ -1,6 +1,6 @@
 import React, { useState } from "react"; //importamos el hook useState para guardar estados
 import AlertMessage from "./AlertMessage"; //importamos el componente que nos ayuda a mostrar los mensajes de success o danger
-const Formulario = () => {  //de aca comienza el formulario para ingresar datos en la pagina de registro
+const Formulario = ({iconAlertError, iconAlertSuccess}) => {  //de aca comienza el formulario para ingresar datos en la pagina de registro
   const [data, setData] = useState({ //constantes que nos envuelven todos los objetos que guardan estados
     nombre: "",
     email: "",
@@ -103,12 +103,14 @@ const Formulario = () => {  //de aca comienza el formulario para ingresar datos 
         </button>
         {error && ( //mensaje para indicar que faltan datos
           <AlertMessage
+            iconAlert = {iconAlertError}
             message="Todos los campos son obligatorios"
             success={false}
           />
         )}
         {registroExitoso && ( //mensaje para saber indicar datos registrados
           <AlertMessage
+            iconAlert = {iconAlertSuccess}
             message="Los datos han sido registrados"
             success={true}
           />

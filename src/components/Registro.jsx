@@ -5,7 +5,9 @@ const Registro = () => { //funcion que nos renderizara los componentes en un sol
         <div className="registro pt-2 pb-2 mt-2 "> 
             <h1>Crea tu cuenta</h1>
             <SocialButton />
-            <Formulario />
+            <Formulario 
+                iconAlertError = '/assets/imgs/iconError.svg'
+                iconAlertSuccess = '/assets/imgs/iconCheck.svg'/>
         </div>
     )
 }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Alert from "./Alert"
+import AlertMessage from "./AlertMessage";
 const Formulario = () => {
   const [data, setData] = useState({
     nombre: "",
@@ -10,6 +10,7 @@ const Formulario = () => {
 
   const [passwordSame, setPasswordSame] = useState(true);
   const [error, setError] = useState(false);
+  const [registroExitoso, setRegistroExitoso] = useState(false);
 
   const cambios = (e) => {
     const { name, value } = e.target;
@@ -25,15 +26,18 @@ const Formulario = () => {
       data.confirmarPassword === ""
     ) {
       setError(true);
+      setRegistroExitoso(false);
       return;
     }
     setError(false);
 
     if (data.password !== data.confirmarPassword) {
       setPasswordSame(false);
+      setRegistroExitoso(false);
       return;
     }
     setPasswordSame(true);
+    setRegistroExitoso(true);
     console.log(data);
   };
 
@@ -99,7 +103,16 @@ const Formulario = () => {
           Registrarse
         </button>
         {error && (
-          <Alert message="Todos los campos son obligatorios"/>
+          <AlertMessage
+            message="Todos los campos son obligatorios"
+            success={false}
+          />
+        )}
+        {registroExitoso && (
+          <AlertMessage
+            message="Los datos han sido registrados"
+            success={true}
+          />
         )}
       </form>
     </div>

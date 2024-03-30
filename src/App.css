@@ -1,9 +1,10 @@
 /* estilos agregados para algunos componentes especificos. */
 .registro {
   border: solid 2px black;
-  border-radius: 5%;
+  border-radius: 16px;
   margin: auto;
   background-color: white;
+  padding: 2em;
 }
 .registro h1 {
   text-align: center;
@@ -11,6 +12,9 @@
 .social {
   display: flex;
   justify-content: center;
+  gap: 2em;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 .border {
   display: flex;
@@ -20,4 +24,5 @@
   height: 60px;
   width: 60px;
   border-radius: 50%;
+
 }
